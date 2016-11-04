@@ -148,7 +148,6 @@ public:
 		mainLayout->addWidget(resultTable, 5, 0, 5, 2);
 
         retranslateUi(MainWindowClass);
-
         QMetaObject::connectSlotsByName(MainWindowClass);
     } // setupUi
 
