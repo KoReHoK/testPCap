@@ -31,10 +31,10 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindowClass
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
-    QWidget *centralWidget;
-    QStatusBar *statusBar;
+	QMenuBar *menuBar;
+	QToolBar *mainToolBar;
+	QWidget *centralWidget;
+	QStatusBar *statusBar;
 	QGridLayout *mainLayout;
 	QGridLayout *miniLayout;
 	QGroupBox *groupBox;
@@ -54,23 +54,23 @@ public:
 	QTableWidget *resultTable;
 
 
-    void setupUi(QMainWindow *MainWindowClass)
-    {
-        if (MainWindowClass->objectName().isEmpty())
-            MainWindowClass->setObjectName(QStringLiteral("MainWindowClass"));
-        MainWindowClass->resize(600, 400);
-        menuBar = new QMenuBar(MainWindowClass);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        MainWindowClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindowClass);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindowClass->addToolBar(mainToolBar);
-        centralWidget = new QWidget(MainWindowClass);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        MainWindowClass->setCentralWidget(centralWidget);
-        statusBar = new QStatusBar(MainWindowClass);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindowClass->setStatusBar(statusBar);
+	void setupUi(QMainWindow *MainWindowClass)
+	{
+		if (MainWindowClass->objectName().isEmpty())
+			MainWindowClass->setObjectName(QStringLiteral("MainWindowClass"));
+		MainWindowClass->resize(600, 400);
+		menuBar = new QMenuBar(MainWindowClass);
+		menuBar->setObjectName(QStringLiteral("menuBar"));
+		MainWindowClass->setMenuBar(menuBar);
+		mainToolBar = new QToolBar(MainWindowClass);
+		mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+		MainWindowClass->addToolBar(mainToolBar);
+		centralWidget = new QWidget(MainWindowClass);
+		centralWidget->setObjectName(QStringLiteral("centralWidget"));
+		MainWindowClass->setCentralWidget(centralWidget);
+		statusBar = new QStatusBar(MainWindowClass);
+		statusBar->setObjectName(QStringLiteral("statusBar"));
+		MainWindowClass->setStatusBar(statusBar);
 
 		mainLayout = new QGridLayout(centralWidget);
 		mainLayout->setContentsMargins(10, 10, 10, 10);
@@ -88,12 +88,12 @@ public:
 		writeConf->setFixedWidth(100);
 		reset->setFixedWidth(100);
 
-		mainLayout->addWidget(groupBox,  0, 0, 5, 0, Qt::AlignLeft);
+		mainLayout->addWidget(groupBox, 0, 0, 5, 0, Qt::AlignLeft);
 		mainLayout->addWidget(openGraph, 0, 1, Qt::AlignRight);
 		mainLayout->addWidget(startMeas, 1, 1, Qt::AlignRight);
-		mainLayout->addWidget(stopMeas,  2, 1, Qt::AlignRight);
+		mainLayout->addWidget(stopMeas, 2, 1, Qt::AlignRight);
 		mainLayout->addWidget(writeConf, 3, 1, Qt::AlignRight);
-		mainLayout->addWidget(reset,	 4, 1, Qt::AlignRight);
+		mainLayout->addWidget(reset, 4, 1, Qt::AlignRight);
 
 		miniLayout = new QGridLayout(groupBox);
 		schemeLab = new QLabel("Measurement Scheme");
@@ -147,19 +147,19 @@ public:
 		resultTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 		mainLayout->addWidget(resultTable, 5, 0, 5, 2);
 
-        retranslateUi(MainWindowClass);
-        QMetaObject::connectSlotsByName(MainWindowClass);
-    } // setupUi
+		retranslateUi(MainWindowClass);
+		QMetaObject::connectSlotsByName(MainWindowClass);
+	} // setupUi
 
-    void retranslateUi(QMainWindow *MainWindowClass)
-    {
-        MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "MainWindow", 0));
-    } // retranslateUi
+	void retranslateUi(QMainWindow *MainWindowClass)
+	{
+		MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "MainWindow", 0));
+	} // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindowClass: public Ui_MainWindowClass {};
+	class MainWindowClass : public Ui_MainWindowClass {};
 } // namespace Ui
 
 QT_END_NAMESPACE

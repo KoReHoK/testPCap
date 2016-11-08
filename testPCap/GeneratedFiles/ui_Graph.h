@@ -19,7 +19,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
-#include <QtWidgets/QGridLayout>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -30,7 +30,7 @@ public:
     QToolBar *mainToolBar;
     QWidget *centralWidget;
     QStatusBar *statusBar;
-	QGridLayout *gridLayout;
+	QCustomPlot *plot;
 
     void setupUi(QMainWindow *Graph)
     {
@@ -45,11 +45,13 @@ public:
         Graph->addToolBar(mainToolBar);
         centralWidget = new QWidget(Graph);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        Graph->setCentralWidget(centralWidget);
+        //Graph->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(Graph);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         Graph->setStatusBar(statusBar);
 
+		plot = new QCustomPlot();
+		Graph->setCentralWidget(plot);
         retranslateUi(Graph);
 
         QMetaObject::connectSlotsByName(Graph);

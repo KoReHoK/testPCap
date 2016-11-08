@@ -1,7 +1,6 @@
 #pragma once
 
-#include <QMainWindow>
-#include "qcustomplot.h"
+#include <QtWidgets/QMainWindow>
 #include "ui_Graph.h"
 
 class Graph : public QMainWindow
@@ -14,9 +13,4 @@ public:
 
 private:
 	Ui::Graph ui;
-	QCustomPlot *customPlot;    // Объявляем графическое полотно
-	QCPGraph *graphic;          // Объявляем график
-
-private slots:
-	void slotRangeChanged(const QCPRange &newRange);
 };
