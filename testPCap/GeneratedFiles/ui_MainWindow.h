@@ -25,6 +25,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTableWidget>
+#include <QtSerialPort/QSerialPort>
 
 QT_BEGIN_NAMESPACE
 
@@ -52,10 +53,38 @@ public:
 	QComboBox *compensBox;
 	QComboBox *discharBox;
 	QTableWidget *resultTable;
+	QAction *actionConnect;
+	QAction *actionDisconnect;
+	QAction *actionConfigure;
+	QAction *actionQuit;
 
 
 	void setupUi(QMainWindow *MainWindowClass)
 	{
+		actionConnect = new QAction(MainWindowClass);
+		actionConnect->setObjectName("actionConnect");
+		QIcon icon;
+		icon.addFile(QStringLiteral(":/MainWindow/images/connect.png"), QSize(), QIcon::Normal, QIcon::Off);
+		actionConnect->setIcon(icon);
+
+		actionDisconnect = new QAction(MainWindowClass);
+		actionDisconnect->setObjectName("actionDisconnect");
+		QIcon icon1;
+		icon1.addFile(QStringLiteral(":/MainWindow/images/disconnect.png"), QSize(), QIcon::Normal, QIcon::Off);
+		actionDisconnect->setIcon(icon1);
+
+		actionConfigure = new QAction(MainWindowClass);
+		actionConfigure->setObjectName("actionConfigure");
+		QIcon icon2;
+		icon2.addFile(QStringLiteral(":/MainWindow/images/settings.png"), QSize(), QIcon::Normal, QIcon::Off);
+		actionConfigure->setIcon(icon2);
+
+		actionQuit = new QAction(MainWindowClass);
+		actionQuit->setObjectName("actionQuit");
+		QIcon icon3;
+		icon3.addFile(QStringLiteral(":/MainWindow/images/application-exit.png"), QSize(), QIcon::Normal, QIcon::Off);
+		actionQuit->setIcon(icon3);
+
 		if (MainWindowClass->objectName().isEmpty())
 			MainWindowClass->setObjectName(QStringLiteral("MainWindowClass"));
 		MainWindowClass->resize(600, 400);
@@ -64,7 +93,11 @@ public:
 		MainWindowClass->setMenuBar(menuBar);
 		mainToolBar = new QToolBar(MainWindowClass);
 		mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-		MainWindowClass->addToolBar(mainToolBar);
+		mainToolBar->addAction(actionConnect);
+		mainToolBar->addAction(actionDisconnect);
+		mainToolBar->addAction(actionConfigure);
+		mainToolBar->addAction(actionQuit);
+		MainWindowClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
 		centralWidget = new QWidget(MainWindowClass);
 		centralWidget->setObjectName(QStringLiteral("centralWidget"));
 		MainWindowClass->setCentralWidget(centralWidget);
@@ -154,6 +187,23 @@ public:
 	void retranslateUi(QMainWindow *MainWindowClass)
 	{
 		MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "MainWindow", 0));
+		actionConnect->setText(QApplication::translate("MainWindow", "C&onnect", 0));
+#ifndef QT_NO_TOOLTIP
+		actionConnect->setToolTip(QApplication::translate("MainWindow", "Connect to serial port", 0));
+#endif // QT_NO_TOOLTIP
+		actionConnect->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", 0));
+		actionDisconnect->setText(QApplication::translate("MainWindow", "&Disconnect", 0));
+#ifndef QT_NO_TOOLTIP
+		actionDisconnect->setToolTip(QApplication::translate("MainWindow", "Disconnect from serial port", 0));
+#endif // QT_NO_TOOLTIP
+		actionDisconnect->setShortcut(QApplication::translate("MainWindow", "Ctrl+D", 0));
+		actionConfigure->setText(QApplication::translate("MainWindow", "&Configure", 0));
+#ifndef QT_NO_TOOLTIP
+		actionConfigure->setToolTip(QApplication::translate("MainWindow", "Configure serial port", 0));
+#endif // QT_NO_TOOLTIP
+		actionConfigure->setShortcut(QApplication::translate("MainWindow", "Alt+C", 0));
+		actionQuit->setText(QApplication::translate("MainWindow", "&Quit", 0));
+		actionQuit->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
 	} // retranslateUi
 
 };

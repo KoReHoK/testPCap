@@ -74,6 +74,7 @@
     <ClCompile Include="GeneratedFiles\moc_Graph.cpp" />
     <ClCompile Include="GeneratedFiles\moc_MainWindow.cpp" />
     <ClCompile Include="GeneratedFiles\moc_qcustomplot.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_settingsdialog.cpp" />
     <ClCompile Include="GeneratedFiles\qrc_MainWindow.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -84,6 +85,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="qcustomplot.cpp" />
+    <ClCompile Include="settingsdialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.h">
@@ -124,6 +126,17 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_Graph.h" />
     <ClInclude Include="GeneratedFiles\ui_MainWindow.h" />
+    <ClInclude Include="GeneratedFiles\ui_settingsdialog.h" />
+    <CustomBuild Include="settingsdialog.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing settingsdialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -DQT_PRINTSUPPORT_LIB "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets" "-IC:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles" "-I$(QTDIR)\include\QtPrintSupport"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing settingsdialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -DQT_PRINTSUPPORT_LIB "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets" "-IC:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles" "-I$(QTDIR)\include\QtPrintSupport"</Command>
+    </CustomBuild>
     <CustomBuild Include="qcustomplot.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing qcustomplot.h...</Message>
@@ -147,6 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Graph.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o "C:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o "C:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="settingsdialog.ui">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Andrey\Desktop\testVisual\testPCap\testPCap\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>

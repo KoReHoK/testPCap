@@ -55,6 +55,12 @@
     <ClCompile Include="GeneratedFiles\moc_qcustomplot.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="settingsdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\moc_settingsdialog.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.h">
@@ -75,12 +81,21 @@
     <CustomBuild Include="qcustomplot.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="settingsdialog.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="settingsdialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_MainWindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_Graph.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_settingsdialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
