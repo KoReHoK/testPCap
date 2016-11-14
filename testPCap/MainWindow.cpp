@@ -6,6 +6,8 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QLabel>
+#include <QDebug>
+#include <QRegExp>
 
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent)
@@ -23,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 	status = new QLabel;
 	ui.statusBar->addWidget(status);
 
+	dataResult = new QTableWidgetItem();
+
 	initActionsConnections();
 
 	connect(serial, static_cast<void (QSerialPort::*)(QSerialPort::SerialPortError)>(&QSerialPort::error),
@@ -31,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(serial, &QSerialPort::readyRead, this, &MainWindow::readData);
 
 	connect(ui.openGraph, SIGNAL(clicked()), this, SLOT(openGraphic()));
+
+	connect(ui.writeConf, SIGNAL(clicked()), this, SLOT(readData()));
 }
 
 MainWindow::~MainWindow() {
@@ -79,7 +85,11 @@ void MainWindow::writeData(const QByteArray &data)
 
 void MainWindow::readData()
 {
-	QByteArray data = serial->readAll();
+	QString data = "1:256";
+	//data = serial->readLine();
+	QRegExp rx("[:]");
+	QStringList list = data.split(rx, QString::SkipEmptyParts);
+	showResult(list.at(0).toInt(), list.at(1));
 }
 
 void MainWindow::handleError(QSerialPort::SerialPortError error)
@@ -101,6 +111,11 @@ void MainWindow::initActionsConnections()
 void MainWindow::showStatusMessage(const QString &message)
 {
 	status->setText(message);
+}
+
+void MainWindow::showResult(const int numb, const QString &msg) {
+	dataResult->setText(msg);
+	ui.resultTable->setItem(numb, 1, dataResult);
 }
 
 void MainWindow::openGraphic() {

@@ -1,11 +1,3 @@
-/********************************************************************************
-** Form generated from reading UI file 'MainWindow.ui'
-**
-** Created by: Qt User Interface Compiler version 5.7.0
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
-
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
@@ -38,6 +30,7 @@ public:
 	QStatusBar *statusBar;
 	QGridLayout *mainLayout;
 	QGridLayout *miniLayout;
+	QGridLayout *chekLayuot;
 	QGroupBox *groupBox;
 	QPushButton *openGraph;
 	QPushButton *startMeas;
@@ -209,7 +202,7 @@ public:
 };
 
 namespace Ui {
-	class MainWindowClass : public Ui_MainWindowClass {};
+	class MainWindow : public Ui_MainWindowClass {};
 } // namespace Ui
 
 QT_END_NAMESPACE

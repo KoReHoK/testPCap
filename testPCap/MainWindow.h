@@ -17,15 +17,18 @@ public:
 	~MainWindow();
 
 private:
-    Ui::MainWindowClass ui;
+    Ui::MainWindow ui;
 	Graph *graph;
 	SettingsDialog *settings;
 	QSerialPort *serial;
 	QLabel *status;
+	QTableWidgetItem *dataResult;
+	int line = 0;
 
 private:
 	void initActionsConnections();
 	void showStatusMessage(const QString &message);
+	void showResult(const int numb, const QString &msg);
 
 private slots:
 	void openGraphic();

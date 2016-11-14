@@ -1,11 +1,3 @@
-/********************************************************************************
-** Form generated from reading UI file 'Graph.ui'
-**
-** Created by: Qt User Interface Compiler version 5.7.0
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
-
 #ifndef UI_GRAPH_H
 #define UI_GRAPH_H
 
@@ -45,7 +37,6 @@ public:
 		Graph->addToolBar(mainToolBar);
 		centralWidget = new QWidget(Graph);
 		centralWidget->setObjectName(QStringLiteral("centralWidget"));
-		//Graph->setCentralWidget(centralWidget);
 		statusBar = new QStatusBar(Graph);
 		statusBar->setObjectName(QStringLiteral("statusBar"));
 		Graph->setStatusBar(statusBar);
