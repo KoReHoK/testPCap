@@ -35,8 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(serial, &QSerialPort::readyRead, this, &MainWindow::readData);
 
 	connect(ui.openGraph, SIGNAL(clicked()), this, SLOT(openGraphic()));
-
-	connect(ui.writeConf, SIGNAL(clicked()), this, SLOT(readData()));
 }
 
 MainWindow::~MainWindow() {
@@ -85,11 +83,13 @@ void MainWindow::writeData(const QByteArray &data)
 
 void MainWindow::readData()
 {
-	QString data = "1:256";
-	//data = serial->readLine();
+	// TODO: Переместить в функцию showResult функцию addPoint
+	QString data;// = "1:256";
+	data = serial->readLine();
 	QRegExp rx("[:]");
 	QStringList list = data.split(rx, QString::SkipEmptyParts);
-	showResult(list.at(0).toInt(), list.at(1));
+	//showResult(list.at(0).toInt(), list.at(1));
+	graph->addPoint(list.at(1).toInt());
 }
 
 void MainWindow::handleError(QSerialPort::SerialPortError error)

@@ -11,6 +11,11 @@ public:
 	Graph(QWidget *parent = Q_NULLPTR);
 	~Graph();
 
+	void addPoint(const int);
+
 private:
 	Ui::Graph ui;
+
+	QVector<double> x, y;
+	long long int count = 0;
 };
