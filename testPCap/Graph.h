@@ -11,7 +11,7 @@ public:
 	Graph(QWidget *parent = Q_NULLPTR);
 	~Graph();
 
-	void addPoint(const int);
+	void addPoint(const uint32_t);
 
 private:
 	Ui::Graph ui;

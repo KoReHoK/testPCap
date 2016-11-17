@@ -16,6 +16,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QTableWidget>
 #include <QtSerialPort/QSerialPort>
 
@@ -39,10 +40,11 @@ public:
 	QPushButton *reset;
 	QLabel *schemeLab;
 	QLabel *portSelLab;
-	QLabel *portErrLab;
+	QLabel *averCountLab;
 	QLabel *compensLab;
 	QLabel *discharLab;
 	QComboBox *measureBox;
+	QLineEdit *averCountEdit;
 	QComboBox *compensBox;
 	QComboBox *discharBox;
 	QTableWidget *resultTable;
@@ -124,35 +126,43 @@ public:
 		miniLayout = new QGridLayout(groupBox);
 		schemeLab = new QLabel("Measurement Scheme");
 		portSelLab = new QLabel("Cap. Port Select");
-		portErrLab = new QLabel("Cap. Port Error");
+		averCountLab = new QLabel("Average Count");
 		compensLab = new QLabel("Stray Compensation");
 		discharLab = new QLabel("Discharge Resistance");
 
 		miniLayout->addWidget(schemeLab, 0, 0);
 		miniLayout->addWidget(portSelLab, 1, 0);
-		miniLayout->addWidget(portErrLab, 2, 0);
+		miniLayout->addWidget(averCountLab, 2, 0);
 		miniLayout->addWidget(compensLab, 3, 0);
 		miniLayout->addWidget(discharLab, 4, 0);
 
 		measureBox = new QComboBox();
+		measureBox->setFixedWidth(137);
 		measureBox->addItem("Grounded | Single");
 		measureBox->addItem("Grounded | Differential");
 		measureBox->addItem("Floating | Single");
 		measureBox->addItem("Floating | Differential");
 
+		averCountEdit = new QLineEdit();
+		averCountEdit->setFixedWidth(137);
+		// TODO: Добавить проверку ввода данных в Edit
+
 		compensBox = new QComboBox();
+		compensBox->setFixedWidth(137);
 		compensBox->addItem("None");
 		compensBox->addItem("Internal");
 		compensBox->addItem("Extrernal");
 		compensBox->addItem("Both");
 
 		discharBox = new QComboBox();
+		discharBox->setFixedWidth(137);
 		discharBox->addItem("10k");
 		discharBox->addItem("30k");
 		discharBox->addItem("90k");
 		discharBox->addItem("180k");
 
 		miniLayout->addWidget(measureBox, 0, 1, Qt::AlignRight);
+		miniLayout->addWidget(averCountEdit, 2, 1, Qt::AlignRight);
 		miniLayout->addWidget(compensBox, 3, 1, Qt::AlignRight);
 		miniLayout->addWidget(discharBox, 4, 1, Qt::AlignRight);
 

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[11];
-    char stringdata0[126];
+    QByteArrayData data[20];
+    char stringdata0[222];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,20 +32,31 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 11), // "openGraphic"
 QT_MOC_LITERAL(2, 23, 0), // ""
-QT_MOC_LITERAL(3, 24, 14), // "openSerialPort"
-QT_MOC_LITERAL(4, 39, 15), // "closeSerialPort"
-QT_MOC_LITERAL(5, 55, 9), // "writeData"
-QT_MOC_LITERAL(6, 65, 4), // "data"
-QT_MOC_LITERAL(7, 70, 8), // "readData"
-QT_MOC_LITERAL(8, 79, 11), // "handleError"
-QT_MOC_LITERAL(9, 91, 28), // "QSerialPort::SerialPortError"
-QT_MOC_LITERAL(10, 120, 5) // "error"
+QT_MOC_LITERAL(3, 24, 9), // "startMeas"
+QT_MOC_LITERAL(4, 34, 8), // "stopMeas"
+QT_MOC_LITERAL(5, 43, 11), // "writeConfig"
+QT_MOC_LITERAL(6, 55, 5), // "reset"
+QT_MOC_LITERAL(7, 61, 14), // "openSerialPort"
+QT_MOC_LITERAL(8, 76, 15), // "closeSerialPort"
+QT_MOC_LITERAL(9, 92, 9), // "writeData"
+QT_MOC_LITERAL(10, 102, 4), // "data"
+QT_MOC_LITERAL(11, 107, 8), // "readData"
+QT_MOC_LITERAL(12, 116, 11), // "handleError"
+QT_MOC_LITERAL(13, 128, 28), // "QSerialPort::SerialPortError"
+QT_MOC_LITERAL(14, 157, 5), // "error"
+QT_MOC_LITERAL(15, 163, 9), // "setScheme"
+QT_MOC_LITERAL(16, 173, 10), // "setPortSel"
+QT_MOC_LITERAL(17, 184, 12), // "setAverCount"
+QT_MOC_LITERAL(18, 197, 12), // "setCompensat"
+QT_MOC_LITERAL(19, 210, 11) // "setDischRes"
 
     },
-    "MainWindow\0openGraphic\0\0openSerialPort\0"
+    "MainWindow\0openGraphic\0\0startMeas\0"
+    "stopMeas\0writeConfig\0reset\0openSerialPort\0"
     "closeSerialPort\0writeData\0data\0readData\0"
     "handleError\0QSerialPort::SerialPortError\0"
-    "error"
+    "error\0setScheme\0setPortSel\0setAverCount\0"
+    "setCompensat\0setDischRes"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,7 +66,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -63,20 +74,38 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x08 /* Private */,
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    0,   46,    2, 0x08 /* Private */,
-       5,    1,   47,    2, 0x08 /* Private */,
-       7,    0,   50,    2, 0x08 /* Private */,
-       8,    1,   51,    2, 0x08 /* Private */,
+       1,    0,   89,    2, 0x08 /* Private */,
+       3,    0,   90,    2, 0x08 /* Private */,
+       4,    0,   91,    2, 0x08 /* Private */,
+       5,    0,   92,    2, 0x08 /* Private */,
+       6,    0,   93,    2, 0x08 /* Private */,
+       7,    0,   94,    2, 0x08 /* Private */,
+       8,    0,   95,    2, 0x08 /* Private */,
+       9,    1,   96,    2, 0x08 /* Private */,
+      11,    0,   99,    2, 0x08 /* Private */,
+      12,    1,  100,    2, 0x08 /* Private */,
+      15,    0,  103,    2, 0x08 /* Private */,
+      16,    0,  104,    2, 0x08 /* Private */,
+      17,    0,  105,    2, 0x08 /* Private */,
+      18,    0,  106,    2, 0x08 /* Private */,
+      19,    0,  107,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QByteArray,    6,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 9,   10,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QByteArray,   10,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 13,   14,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -88,11 +117,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->openGraphic(); break;
-        case 1: _t->openSerialPort(); break;
-        case 2: _t->closeSerialPort(); break;
-        case 3: _t->writeData((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
-        case 4: _t->readData(); break;
-        case 5: _t->handleError((*reinterpret_cast< QSerialPort::SerialPortError(*)>(_a[1]))); break;
+        case 1: _t->startMeas(); break;
+        case 2: _t->stopMeas(); break;
+        case 3: _t->writeConfig(); break;
+        case 4: _t->reset(); break;
+        case 5: _t->openSerialPort(); break;
+        case 6: _t->closeSerialPort(); break;
+        case 7: _t->writeData((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 8: _t->readData(); break;
+        case 9: _t->handleError((*reinterpret_cast< QSerialPort::SerialPortError(*)>(_a[1]))); break;
+        case 10: _t->setScheme(); break;
+        case 11: _t->setPortSel(); break;
+        case 12: _t->setAverCount(); break;
+        case 13: _t->setCompensat(); break;
+        case 14: _t->setDischRes(); break;
         default: ;
         }
     }
@@ -123,13 +161,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 15;
     }
     return _id;
 }

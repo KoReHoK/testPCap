@@ -23,19 +23,47 @@ private:
 	QSerialPort *serial;
 	QLabel *status;
 	QTableWidgetItem *dataResult;
-	int line = 0;
 
 private:
-	void initActionsConnections();
+	QByteArray scheme;
+	QByteArray portSel;
+	QByteArray averCount;
+	QByteArray compensat;
+	QByteArray dischRes;
+
+	QByteArray cmd;
+
+private:
+	void initConnections();
 	void showStatusMessage(const QString &message);
-	void showResult(const int numb, const QString &msg);
+	void showResult(const int &numb, const QString &msg);
+	void makeCommand();
+	void beginCommand();
 
 private slots:
 	void openGraphic();
+	void startMeas();
+	void stopMeas();
+	void writeConfig();
+	void reset();
 	void openSerialPort();
 	void closeSerialPort();
 	void writeData(const QByteArray &data);
 	void readData();
 
 	void handleError(QSerialPort::SerialPortError error);
+
+private slots:
+	void setScheme();
+	void setPortSel();
+	void setAverCount();
+	void setCompensat();
+	void setDischRes();
+
+private:
+	QByteArray getScheme();
+	QByteArray getPortSel();
+	QByteArray getAverCount();
+	QByteArray getCompensat();
+	QByteArray getDischRes();
 };

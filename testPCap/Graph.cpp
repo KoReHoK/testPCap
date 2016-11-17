@@ -23,7 +23,7 @@ Graph::~Graph()
 {
 }
 
-void Graph::addPoint(const int _y){
+void Graph::addPoint(const uint32_t _y){
 	// TODO: ƒобавить обработку при переполнении count
 	y.push_back(_y);
 	x.push_back(++count);
