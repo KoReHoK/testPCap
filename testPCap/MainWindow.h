@@ -54,8 +54,15 @@ private slots:
 	void handleError(QSerialPort::SerialPortError error);
 
 private slots:
+	void setCapPort0();
+	void setCapPort1();
+	void setCapPort2();
+	void setCapPort3();
+	void setCapPort4();
+	void setCapPort5();
+	void setCapPort6();
+	void setCapPort7();
 	void setScheme();
-	void setPortSel();
 	void setAverCount();
 	void setCompensat();
 	void setDischRes();

@@ -79,16 +79,14 @@ void MainWindow::writeData(const QByteArray &data)
 void MainWindow::readData()
 {
 	QString data;
-	//data.truncate();
 	if (serial->canReadLine()) {
-		//data = serial->readLine();
+		//TODO: проверить передачу и прием данных
+		//QByteArray temp = serial->readLine();
 		data.append(serial->readLine());
 		QRegExp rx("[:]");
 		QStringList list = data.split(rx, QString::SkipEmptyParts);
 		showResult(list.at(0).toInt(), list.at(1));
 		graph->addPoint(list.at(1).toUInt());
-		//uint32_t testVal = list.at(1).toUInt();
-		//graph->addPoint(testVal);
 	}
 }
 
@@ -133,14 +131,38 @@ void MainWindow::initConnections()
 
 	connect(ui.discharBox, SIGNAL(currentIndexChanged(int)),
 		this, SLOT(setDischRes()));
+
+	connect(ui.checkPort0, SIGNAL(clicked()),
+		this, SLOT(setCapPort0()));
+
+	connect(ui.checkPort1, SIGNAL(clicked()),
+		this, SLOT(setCapPort1()));
+
+	connect(ui.checkPort2, SIGNAL(clicked()),
+		this, SLOT(setCapPort2()));
+
+	connect(ui.checkPort3, SIGNAL(clicked()),
+		this, SLOT(setCapPort3()));
+
+	connect(ui.checkPort4, SIGNAL(clicked()),
+		this, SLOT(setCapPort4()));
+
+	connect(ui.checkPort5, SIGNAL(clicked()),
+		this, SLOT(setCapPort5()));
+
+	connect(ui.checkPort6, SIGNAL(clicked()),
+		this, SLOT(setCapPort6()));
+
+	connect(ui.checkPort7, SIGNAL(clicked()),
+		this, SLOT(setCapPort7()));
 }
 
 void MainWindow::beginCommand() {
-	scheme = "2";
-	portSel = "255";
-	averCount = "50";
-	compensat = "3";
-	dischRes = "2";
+	scheme = "0";
+	portSel = "0";
+	averCount = "1";
+	compensat = "0";
+	dischRes = "0";
 }
 
 void MainWindow::showStatusMessage(const QString &message)
@@ -176,18 +198,88 @@ void MainWindow::reset() {
 }
 
 void MainWindow::setScheme() {
-	switch (ui.measureBox->currentIndex()) {
-		case 0: scheme = "0"; break;
-		case 1: scheme = "1"; break;
-		case 2: scheme = "2"; break;
-		case 3: scheme = "3"; break;
-	}
+	scheme = "";
+	scheme.append(QString::number(ui.measureBox->currentIndex()));
 }
 
-void MainWindow::setPortSel(){
+void MainWindow::setCapPort0(){
+	int temp = portSel.toInt();
+
+	if(ui.checkPort0->isChecked()) temp |= 0x1;
+	else temp &= 0xFE;
+
 	portSel = "";
-	//TODO: Добавить обработку выбора порта
-	portSel.append("255");
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort1() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x2;
+	else temp &= 0xFD;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort2() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x4;
+	else temp &= 0xFB;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort3() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x8;
+	else temp &= 0xF7;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort4() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x10;
+	else temp &= 0xEF;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort5() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x20;
+	else temp &= 0xDF;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort6() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x40;
+	else temp &= 0xBF;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
+}
+
+void MainWindow::setCapPort7() {
+	int temp = portSel.toInt();
+
+	if (ui.checkPort0->isChecked()) temp |= 0x80;
+	else temp &= 0x7F;
+
+	portSel = "";
+	portSel.append(QString::number(temp));
 }
 
 void MainWindow::setAverCount() {
@@ -196,21 +288,13 @@ void MainWindow::setAverCount() {
 }
 
 void MainWindow::setCompensat() {
-	switch (ui.compensBox->currentIndex()) {
-		case 0: compensat = "0"; break;
-		case 1: compensat = "1"; break;
-		case 2: compensat = "2"; break;
-		case 3: compensat = "3"; break;
-	}
+	compensat = "";
+	compensat.append(QString::number(ui.compensBox->currentIndex()));
 }
 
 void MainWindow::setDischRes() {
-	switch (ui.discharBox->currentIndex()) {
-		case 0: dischRes = "0"; break;
-		case 1: dischRes = "1"; break;
-		case 2: dischRes = "2"; break;
-		case 3: dischRes = "3"; break;
-	}
+	dischRes = "";
+	dischRes.append(QString::number(ui.discharBox->currentIndex()));
 }
 
 QByteArray MainWindow::getScheme() {

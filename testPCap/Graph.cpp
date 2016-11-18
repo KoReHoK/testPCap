@@ -24,7 +24,7 @@ Graph::~Graph()
 }
 
 void Graph::addPoint(const uint32_t _y){
-	// TODO: ƒобавить обработку при переполнении count
+	//TODO: ƒобавить обработку при переполнении count
 	y.push_back(_y);
 	x.push_back(++count);
 	ui.plot->graph(0)->setData(x, y);

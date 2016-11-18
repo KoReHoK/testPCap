@@ -1,4 +1,4 @@
-#ifndef UI_MAINWINDOW_H
+﻿#ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
@@ -17,6 +17,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QTableWidget>
 #include <QtSerialPort/QSerialPort>
 
@@ -31,7 +32,6 @@ public:
 	QStatusBar *statusBar;
 	QGridLayout *mainLayout;
 	QGridLayout *miniLayout;
-	QGridLayout *chekLayuot;
 	QGroupBox *groupBox;
 	QPushButton *openGraph;
 	QPushButton *startMeas;
@@ -45,6 +45,14 @@ public:
 	QLabel *discharLab;
 	QComboBox *measureBox;
 	QLineEdit *averCountEdit;
+	QCheckBox *checkPort0;
+	QCheckBox *checkPort1;
+	QCheckBox *checkPort2;
+	QCheckBox *checkPort3;
+	QCheckBox *checkPort4;
+	QCheckBox *checkPort5;
+	QCheckBox *checkPort6;
+	QCheckBox *checkPort7;
 	QComboBox *compensBox;
 	QComboBox *discharBox;
 	QTableWidget *resultTable;
@@ -137,34 +145,52 @@ public:
 		miniLayout->addWidget(discharLab, 4, 0);
 
 		measureBox = new QComboBox();
-		measureBox->setFixedWidth(137);
+		measureBox->setFixedWidth(150);
 		measureBox->addItem("Grounded | Single");
 		measureBox->addItem("Grounded | Differential");
 		measureBox->addItem("Floating | Single");
 		measureBox->addItem("Floating | Differential");
 
 		averCountEdit = new QLineEdit();
-		averCountEdit->setFixedWidth(137);
-		// TODO: �������� �������� ����� ������ � Edit
+		averCountEdit->setFixedWidth(150);
+		//TODO: Добавить проверку ввода данных
 
 		compensBox = new QComboBox();
-		compensBox->setFixedWidth(137);
+		compensBox->setFixedWidth(150);
 		compensBox->addItem("None");
 		compensBox->addItem("Internal");
 		compensBox->addItem("Extrernal");
 		compensBox->addItem("Both");
 
 		discharBox = new QComboBox();
-		discharBox->setFixedWidth(137);
+		discharBox->setFixedWidth(150);
 		discharBox->addItem("10k");
 		discharBox->addItem("30k");
 		discharBox->addItem("90k");
 		discharBox->addItem("180k");
 
-		miniLayout->addWidget(measureBox, 0, 1, Qt::AlignRight);
-		miniLayout->addWidget(averCountEdit, 2, 1, Qt::AlignRight);
-		miniLayout->addWidget(compensBox, 3, 1, Qt::AlignRight);
-		miniLayout->addWidget(discharBox, 4, 1, Qt::AlignRight);
+		checkPort0 = new QCheckBox();
+		checkPort1 = new QCheckBox();
+		checkPort2 = new QCheckBox();
+		checkPort3 = new QCheckBox();
+		checkPort4 = new QCheckBox();
+		checkPort5 = new QCheckBox();
+		checkPort6 = new QCheckBox();
+		checkPort7 = new QCheckBox();
+
+		miniLayout->addWidget(checkPort0, 1, 1, Qt::AlignRight);
+		miniLayout->addWidget(checkPort1, 1, 2, Qt::AlignRight);
+		miniLayout->addWidget(checkPort2, 1, 3, Qt::AlignRight);
+		miniLayout->addWidget(checkPort3, 1, 4, Qt::AlignRight);
+		miniLayout->addWidget(checkPort4, 1, 5, Qt::AlignRight);
+		miniLayout->addWidget(checkPort5, 1, 6, Qt::AlignRight);
+		miniLayout->addWidget(checkPort6, 1, 7, Qt::AlignRight);
+		miniLayout->addWidget(checkPort7, 1, 8, Qt::AlignRight);
+
+		miniLayout->addWidget(measureBox,	 0, 1, 1, 8, Qt::AlignRight);
+		miniLayout->addWidget(averCountEdit, 2, 1, 1, 8, Qt::AlignRight);
+		miniLayout->addWidget(compensBox,	 3, 1, 1, 8, Qt::AlignRight);
+		miniLayout->addWidget(discharBox,	 4, 1, 1, 8, Qt::AlignRight);
 
 		resultTable = new QTableWidget(8, 3);
 		resultTable->setHorizontalHeaderItem(0, new QTableWidgetItem("Name"));
@@ -178,10 +204,12 @@ public:
 		resultTable->setItem(5, 0, new QTableWidgetItem("C5/Cref"));
 		resultTable->setItem(6, 0, new QTableWidgetItem("C6/Cref"));
 		resultTable->setItem(7, 0, new QTableWidgetItem("C7/Cref"));
-		resultTable->setColumnWidth(1, 125);
-		resultTable->setColumnWidth(2, 125);
+		resultTable->setColumnWidth(0, 105);
+		resultTable->setColumnWidth(1, 130);
+		resultTable->setColumnWidth(2, 130);
 		resultTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 		mainLayout->addWidget(resultTable, 5, 0, 5, 2);
+		//TODO: Добавить скрытие определенных кнопок
 
 		retranslateUi(MainWindowClass);
 		QMetaObject::connectSlotsByName(MainWindowClass);

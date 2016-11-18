@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[20];
-    char stringdata0[222];
+    QByteArrayData data[27];
+    char stringdata0[307];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,19 +44,28 @@ QT_MOC_LITERAL(11, 107, 8), // "readData"
 QT_MOC_LITERAL(12, 116, 11), // "handleError"
 QT_MOC_LITERAL(13, 128, 28), // "QSerialPort::SerialPortError"
 QT_MOC_LITERAL(14, 157, 5), // "error"
-QT_MOC_LITERAL(15, 163, 9), // "setScheme"
-QT_MOC_LITERAL(16, 173, 10), // "setPortSel"
-QT_MOC_LITERAL(17, 184, 12), // "setAverCount"
-QT_MOC_LITERAL(18, 197, 12), // "setCompensat"
-QT_MOC_LITERAL(19, 210, 11) // "setDischRes"
+QT_MOC_LITERAL(15, 163, 11), // "setCapPort0"
+QT_MOC_LITERAL(16, 175, 11), // "setCapPort1"
+QT_MOC_LITERAL(17, 187, 11), // "setCapPort2"
+QT_MOC_LITERAL(18, 199, 11), // "setCapPort3"
+QT_MOC_LITERAL(19, 211, 11), // "setCapPort4"
+QT_MOC_LITERAL(20, 223, 11), // "setCapPort5"
+QT_MOC_LITERAL(21, 235, 11), // "setCapPort6"
+QT_MOC_LITERAL(22, 247, 11), // "setCapPort7"
+QT_MOC_LITERAL(23, 259, 9), // "setScheme"
+QT_MOC_LITERAL(24, 269, 12), // "setAverCount"
+QT_MOC_LITERAL(25, 282, 12), // "setCompensat"
+QT_MOC_LITERAL(26, 295, 11) // "setDischRes"
 
     },
     "MainWindow\0openGraphic\0\0startMeas\0"
     "stopMeas\0writeConfig\0reset\0openSerialPort\0"
     "closeSerialPort\0writeData\0data\0readData\0"
     "handleError\0QSerialPort::SerialPortError\0"
-    "error\0setScheme\0setPortSel\0setAverCount\0"
-    "setCompensat\0setDischRes"
+    "error\0setCapPort0\0setCapPort1\0setCapPort2\0"
+    "setCapPort3\0setCapPort4\0setCapPort5\0"
+    "setCapPort6\0setCapPort7\0setScheme\0"
+    "setAverCount\0setCompensat\0setDischRes"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,7 +75,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -74,21 +83,28 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   89,    2, 0x08 /* Private */,
-       3,    0,   90,    2, 0x08 /* Private */,
-       4,    0,   91,    2, 0x08 /* Private */,
-       5,    0,   92,    2, 0x08 /* Private */,
-       6,    0,   93,    2, 0x08 /* Private */,
-       7,    0,   94,    2, 0x08 /* Private */,
-       8,    0,   95,    2, 0x08 /* Private */,
-       9,    1,   96,    2, 0x08 /* Private */,
-      11,    0,   99,    2, 0x08 /* Private */,
-      12,    1,  100,    2, 0x08 /* Private */,
-      15,    0,  103,    2, 0x08 /* Private */,
-      16,    0,  104,    2, 0x08 /* Private */,
-      17,    0,  105,    2, 0x08 /* Private */,
-      18,    0,  106,    2, 0x08 /* Private */,
-      19,    0,  107,    2, 0x08 /* Private */,
+       1,    0,  124,    2, 0x08 /* Private */,
+       3,    0,  125,    2, 0x08 /* Private */,
+       4,    0,  126,    2, 0x08 /* Private */,
+       5,    0,  127,    2, 0x08 /* Private */,
+       6,    0,  128,    2, 0x08 /* Private */,
+       7,    0,  129,    2, 0x08 /* Private */,
+       8,    0,  130,    2, 0x08 /* Private */,
+       9,    1,  131,    2, 0x08 /* Private */,
+      11,    0,  134,    2, 0x08 /* Private */,
+      12,    1,  135,    2, 0x08 /* Private */,
+      15,    0,  138,    2, 0x08 /* Private */,
+      16,    0,  139,    2, 0x08 /* Private */,
+      17,    0,  140,    2, 0x08 /* Private */,
+      18,    0,  141,    2, 0x08 /* Private */,
+      19,    0,  142,    2, 0x08 /* Private */,
+      20,    0,  143,    2, 0x08 /* Private */,
+      21,    0,  144,    2, 0x08 /* Private */,
+      22,    0,  145,    2, 0x08 /* Private */,
+      23,    0,  146,    2, 0x08 /* Private */,
+      24,    0,  147,    2, 0x08 /* Private */,
+      25,    0,  148,    2, 0x08 /* Private */,
+      26,    0,  149,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -101,6 +117,13 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QByteArray,   10,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 13,   14,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -126,11 +149,18 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->writeData((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
         case 8: _t->readData(); break;
         case 9: _t->handleError((*reinterpret_cast< QSerialPort::SerialPortError(*)>(_a[1]))); break;
-        case 10: _t->setScheme(); break;
-        case 11: _t->setPortSel(); break;
-        case 12: _t->setAverCount(); break;
-        case 13: _t->setCompensat(); break;
-        case 14: _t->setDischRes(); break;
+        case 10: _t->setCapPort0(); break;
+        case 11: _t->setCapPort1(); break;
+        case 12: _t->setCapPort2(); break;
+        case 13: _t->setCapPort3(); break;
+        case 14: _t->setCapPort4(); break;
+        case 15: _t->setCapPort5(); break;
+        case 16: _t->setCapPort6(); break;
+        case 17: _t->setCapPort7(); break;
+        case 18: _t->setScheme(); break;
+        case 19: _t->setAverCount(); break;
+        case 20: _t->setCompensat(); break;
+        case 21: _t->setDischRes(); break;
         default: ;
         }
     }
@@ -161,13 +191,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 22)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 15;
+        _id -= 22;
     }
     return _id;
 }
